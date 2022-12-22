@@ -1,9 +1,96 @@
 <!DOCTYPE html>
 <html>
+
+    <head>
+        <style>
+            body, html 
+            {
+            height: 100%;
+            margin: 0;
+            font-family: Arial;
+            }
+
+            .tablink 
+            {
+            background-color: #555;
+            color: white;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            font-size: 17px;
+            width: 25%;
+            }
+
+            .tablink:hover 
+            {
+            background-color: #777;
+            }
+
+            .tabcontent
+            {
+            color: white;
+            display: none;
+            padding: 100px 20px;
+            height: 100%;
+            }
+
+            #Home {background-color: rgb(128, 186, 233);}
+            #Projects {background-color: rgb(128, 186, 233);}
+            #Contact {background-color:rgb(128, 186, 233);}
+            #About {background-color: rgb(128, 186, 233);}
+
+        </style>
+    </head>
 <body>
 
-<h1>My First Heading</h1>
-<p>My first paragraph.</p>
+    <button class="tablink" onclick="openPage('Home', this, 'rgb(128, 186, 233)')" id="defaultOpen">Home</button>
+    <button class="tablink" onclick="openPage('Projects', this, 'rgb(128, 186, 233)')" >Projects</button>
+    <button class="tablink" onclick="openPage('About', this, 'rgb(128, 186, 233)')">About</button>
+    <button class="tablink" onclick="openPage('Contact', this, 'rgb(128, 186, 233)')">Contact</button>
+    
+    <div id="Home" class="tabcontent">
+        <h1 style="font-family:impact; font-size: 1000%">B A G H E A D</h1>
+        <p style="font-family:palatino; font-size: 500%">This is where art is born.</p>
+    </div>
+    
+    <div id="Projects" class="tabcontent">
+        <h1 style="font-family:impact; font-size: 1000%">Projects</h1>
+        <p style="font-family:palatino; font-size: 500%">Take a look at my artwork.</p>
+        <img src="IMG_9993.jpeg" width="750" height="500">
+    </div>
+    
+    <div id="Contact" class="tabcontent">
+        <h1 style="font-family:impact; font-size: 1000%">About</h1>
+        <p style="font-family:palatino; font-size: 500%">My friends said I couldn't play Fortnite until I coded something. So here I am.</p>
+    </div>
+    
+    <div id="About" class="tabcontent">
+        <h1 style="font-family:impact; font-size: 1000%">Contact</h1>
+        <p style="font-family:palatino; font-size: 500%">If you need me, don't.</p>
+    </div>
+
+    <script>
+        function openPage(pageName,elmnt,color) {
+          var i, tabcontent, tablinks;
+          tabcontent = document.getElementsByClassName("tabcontent");
+          for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+          }
+          tablinks = document.getElementsByClassName("tablink");
+          for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].style.backgroundColor = "";
+          }
+          document.getElementById(pageName).style.display = "block";
+          elmnt.style.backgroundColor = color;
+        }
+        
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+        </script>
+
+
 
 </body>
 </html>
